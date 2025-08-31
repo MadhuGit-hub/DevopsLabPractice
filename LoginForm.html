@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dynamic Login Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #f4f4f9;
+    }
+    .form-container {
+      background: white;
+      padding: 20px 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      width: 300px;
+    }
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .form-container input {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    .form-container button {
+      width: 100%;
+      padding: 10px;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .form-container button:hover {
+      background: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script>
+    // Create container
+    const container = document.createElement("div");
+    container.className = "form-container";
+
+    // Create heading
+    const heading = document.createElement("h2");
+    heading.textContent = "Login";
+    container.appendChild(heading);
+
+    // Create form
+    const form = document.createElement("form");
+
+    // Username input
+    const username = document.createElement("input");
+    username.type = "text";
+    username.placeholder = "Enter Username";
+    username.required = true;
+    form.appendChild(username);
+
+    // Password input
+    const password = document.createElement("input");
+    password.type = "password";
+    password.placeholder = "Enter Password";
+    password.required = true;
+    form.appendChild(password);
+
+    // Submit button
+    const loginBtn = document.createElement("button");
+    loginBtn.type = "submit";
+    loginBtn.textContent = "Login";
+    form.appendChild(loginBtn);
+
+    // Append form to container
+    container.appendChild(form);
+
+    // Append container to root
+    document.getElementById("root").appendChild(container);
+
+    // Handle form submit
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      alert("Username: " + username.value + "\nPassword: " + password.value);
+    });
+  </script>
+</body>
+</html>
